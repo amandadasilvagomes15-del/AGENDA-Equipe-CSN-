@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agenda da equipe, novembro e dezembro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#eeeeec;--card:#f8f8f7;--ink:#111114;--mute:#5a5b63;--line:#d2d3d6;--t1:#0e0e10;--t2:#80818a;--blend:multiply;--inv:none;--danger:#b3261e;--chrome:linear-gradient(135deg,#fdfdfd 0%,#b1b2b8 40%,#f1f1f3 56%,#868790 100%);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0c0e;--card:#151518;--ink:#f2f2f3;--mute:#a3a4ac;--line:#2d2e33;--t1:#f4f4f5;--t2:#7d7e87;--blend:screen;--inv:invert(1);--danger:#ff9b92;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c0c0e;--card:#151518;--ink:#f2f2f3;--mute:#a3a4ac;--line:#2d2e33;--t1:#f4f4f5;--t2:#7d7e87;--blend:screen;--inv:invert(1);--danger:#ff9b92;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+main{max-width:720px;margin:0 auto;padding:20px 16px 56px}
+.hero{display:grid;grid-template-columns:minmax(90px,28%) 1fr;gap:16px;align-items:center}
+.logo{width:100%;max-width:100px;height:auto;display:block}
+h1{font:700 clamp(1.7rem,7vw,2.7rem)/1.02 "Unbounded","Arial Black",system-ui,sans-serif;letter-spacing:-.03em;margin:0 0 10px;background:linear-gradient(100deg,var(--t1) 0%,var(--t2) 45%,var(--t1) 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){h1{color:var(--ink)}}
+.sub{margin:0;color:var(--mute);font-size:.95rem}
+.tabs{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px;margin:22px 0 14px}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:999px;background:transparent;color:var(--ink);font:600 .95rem "DM Sans",system-ui,sans-serif;cursor:pointer;display:flex;gap:8px;align-items:center;justify-content:center}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+.cal{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px}
+.dow,.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dow span{text-align:center;font-size:.8rem;color:var(--mute);padding:2px 0 6px}
+.day{aspect-ratio:1;min-height:40px;border:0;border-radius:12px;background:transparent;color:var(--ink);font:500 .95rem "DM Sans",system-ui,sans-serif;cursor:pointer}
+.day:not(:disabled):hover{background:var(--bg)}
+.day:disabled{color:var(--mute);cursor:default}
+button:focus-visible,a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tabs small{font-size:.75rem;opacity:.7}
+.going{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+.pill{padding:3px 10px;border-radius:999px;border:1px solid var(--line);font-size:.85rem}
+.day.has{background:var(--chrome);color:#0e0e10;font-weight:700}
+.day.today{box-shadow:inset 0 0 0 2px var(--ink)}
+.lh{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:26px 0 12px}
+h2{font:700 1.25rem/1.2 "Unbounded","Arial Black",system-ui,sans-serif;letter-spacing:-.02em;margin:0}
+.empty{color:var(--mute);padding:18px;border:1px dashed var(--line);border-radius:18px;margin:0}
+.ev{display:grid;grid-template-columns:64px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px;transition:box-shadow .2s}
+.ev.flash{box-shadow:0 0 0 2px var(--ink)}
+.date{background:var(--chrome);color:#0e0e10;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;height:72px}
+.date b{font:700 1.7rem/1 "Unbounded","Arial Black",system-ui,sans-serif}
+.date span{font-size:.85rem;font-weight:500}
+.body{min-width:0}
+.body h3{font:700 1.1rem/1.25 "Unbounded","Arial Black",system-ui,sans-serif;letter-spacing:-.01em;margin:2px 0 6px;overflow-wrap:anywhere}
+.body p{margin:2px 0;color:var(--mute);font-size:.95rem;overflow-wrap:anywhere}
+.addr a{color:var(--ink);text-decoration-color:var(--line);text-underline-offset:3px}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.chip{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+  <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo da equipe: um S cromado atravessado por uma estrela de quatro pontas">
+    <defs>
+      <linearGradient id="chromeLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="40%" stop-color="#b1b2b8"/>
+        <stop offset="56%" stop-color="#f1f1f3"/>
+        <stop offset="100%" stop-color="#868790"/>
+      </linearGradient>
+    </defs>
+    <path d="M65 25 C65 12, 35 12, 35 32 C35 52, 65 50, 65 70 C65 88, 35 88, 35 75" stroke="url(#chromeLogo)" stroke-width="12" stroke-linecap="round" fill="none"/>
+    <path d="M50 8 L54 42 L88 46 L54 50 L50 84 L46 50 L12 46 L46 42 Z" fill="url(#chromeLogo)"/>
+  </svg>
+  <div>
+    <h1>Agenda da equipe</h1>
+    <p class="sub">Novembro e dezembro de 2026. Toque em um dia marcado para ir direto ao evento.</p>
+    <p class="sub" id="upd"></p>
+  </div>
+</header>
+<nav class="tabs" id="tabs" role="tablist" aria-label="Mês"></nav>
+<section class="cal" aria-label="Calendário do mês"><div class="dow" aria-hidden="true"></div><div class="grid" id="grid"></div></section>
+<div class="lh"><h2 id="lt"></h2></div>
+<section id="list" aria-live="polite"></section>
+</main>
+
+<script>
+const MON=[{y:2026,m:10,n:"Novembro"},{y:2026,m:11,n:"Dezembro"}];
+const WD=["dom","seg","ter","qua","qui","sex","sáb"];
+let UPDATED="10/11/2026";
+let EVENTS={};
+const $=s=>document.querySelector(s);
+const el=(t,c,x)=>{const n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n};
+const pad=n=>String(n).padStart(2,"0");
+const ds=(y,m,d)=>y+"-"+pad(m+1)+"-"+pad(d);
+const safe=u=>/^https?:\/\//i.test(u||"")?u:"";
+const ft=t=>{if(!t)return"";const p=t.split(":"),h=p[0].replace(/^0/,"");return p[1]==="00"?h+"h":h+"h"+p[1]};
+const now=new Date(),todayS=ds(now.getFullYear(),now.getMonth(),now.getDate());
+let cur=(now.getFullYear()===2026&&now.getMonth()===11)?1:0;
+WD.forEach(d=>$(".dow").append(el("span","",d)));
+function evs(i){const p=MON[i].y+"-"+pad(MON[i].m+1);return Object.entries(EVENTS).filter(e=>(e[1].date||"").startsWith(p)).sort((a,b)=>(a[1].date+(a[1].start||"")).localeCompare(b[1].date+(b[1].start||"")))}
+function renderTabs(){const t=$("#tabs");t.replaceChildren();MON.forEach((m,i)=>{const b=el("button",i===cur?"on":"",m.n);b.setAttribute("role","tab");b.setAttribute("aria-selected",String(i===cur));const c=evs(i).length;if(c)b.append(el("small","",String(c)));b.onclick=()=>{cur=i;render()};t.append(b)})}
+function renderGrid(){const y=MON[cur].y,m=MON[cur].m,g=$("#grid");g.replaceChildren();const off=new Date(y,m,1).getDay(),n=new Date(y,m+1,0).getDate(),by={};
+evs(cur).forEach(e=>{(by[e[1].date]=by[e[1].date]||[]).push(e[0])});
+for(let i=0;i<off;i++)g.append(el("span"));
+for(let d=1;d<=n;d++){const s=ds(y,m,d),b=el("button","day"+(by[s]?" has":"")+(s===todayS?" today":""),String(d));
+b.setAttribute("aria-label",d+" de "+MON[cur].n+(by[s]?", "+by[s].length+" evento(s)":""));
+if(by[s])b.onclick=()=>{const c=document.getElementById("ev-"+by[s][0]);if(c){c.scrollIntoView({behavior:"smooth",block:"center"});c.classList.add("flash");setTimeout(()=>c.classList.remove("flash"),1400)}};else b.disabled=true;
+g.append(b)}}
+function card(id,e){const p=e.date.split("-").map(Number),c=el("article","ev");c.id="ev-"+id;
+const dbox=el("div","date");dbox.append(el("b","",String(p[2])),el("span","",WD[new Date(p[0],p[1]-1,p[2]).getDay()]));
+const b=el("div","body");b.append(el("h3","",e.title||"Sem título"));
+if(e.start)b.append(el("p","","Horário: "+ft(e.start)+(e.end?" às "+ft(e.end):"")));
+if(e.address){const q=el("p","addr"),a=el("a","",e.address);a.href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(e.address);a.target="_blank";a.rel="noopener";q.append(a);b.append(q)}
+if(e.lineup)b.append(el("p","","Atrações: "+e.lineup));
+const ln=el("div","links");[["Ingressos",e.ticket],["Instagram",e.insta]].forEach(x=>{if(safe(x[1])){const a=el("a","chip",x[0]);a.href=x[1];a.target="_blank";a.rel="noopener";ln.append(a)}});
+if(ln.children.length)b.append(ln);
+if(e.notes)b.append(el("p","",e.notes));
+if(Array.isArray(e.going)&&e.going.length){const gw=el("div","going");gw.append(el("span","","Quem vai:"));e.going.forEach(n=>gw.append(el("span","pill",n)));b.append(gw)}
+c.append(dbox,b);return c}
+function renderList(){const L=$("#list");L.replaceChildren();$("#lt").textContent=MON[cur].n;
+const a=evs(cur);
+if(!a.length){L.append(el("p","empty","Nada marcado em "+MON[cur].n.toLowerCase()+" ainda."));return}
+a.forEach(e=>L.append(card(e[0],e[1])))}
+function render(){renderTabs();renderGrid();renderList()}
+fetch("eventos.json?t="+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{EVENTS=j.eventos||{};UPDATED=j.atualizado||UPDATED;$("#upd").textContent="Atualizada em "+UPDATED+".";render()}).catch(()=>{$("#upd").textContent="Incapaz de carregar a lista de eventos. Verifique o arquivo eventos.json."});
+</script>
+</body>
+</html>
