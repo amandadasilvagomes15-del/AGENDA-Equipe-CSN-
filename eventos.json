@@ -1,6 +1,59 @@
 {
-  "atualizado": "10/11/2026",
-  "eventos": {
+  "atualizado": "20/11/2026",
+  "eventos": { 
+        "e-20261121-1": {
+      "title": "Show do CHR | 23ª Semana do HipHop de Itapevi",
+      "date": "2026-11-21",
+      "start": "12:15",
+      "end": "",
+      "address": "Parque da Cidade - R. Prof. Dimarães Antônio Sandei, Vila - Jardim Nova Itapevi, Itapevi - SP, 06694-090",
+      "lineup": "CHR",
+      "ticket": "",
+      "insta": "",
+      "notes": "Realização: Comissão do Hip Hop de Itapevi | Apoio: Secretaria de Cultura de Itapevi",
+      "going": [],
+      "cover": "capa-chr.jpg"
+    },
+    "e-20261121-2": {
+      "title": "Show do VJ7 | 23ª Semana do HipHop de Itapevi",
+      "date": "2026-11-21",
+      "start": "19:50",
+      "end": "",
+      "address": "Parque da Cidade - R. Prof. Dimarães Antônio Sandei, Vila - Jardim Nova Itapevi, Itapevi - SP, 06694-090",
+      "lineup": "VJ7",
+      "ticket": "",
+      "insta": "",
+      "notes": "Realização: Comissão do Hip Hop de Itapevi | Apoio: Secretaria de Cultura de Itapevi",
+      "going": [],
+      "cover": "capa-vj7.jpg"
+    },
+    "e-20261121-3": {
+      "title": "Show do oJhow | 23ª Semana do HipHop de Itapevi",
+      "date": "2026-11-21",
+      "start": "21:20",
+      "end": "",
+      "address": "Parque da Cidade - R. Prof. Dimarães Antônio Sandei, Vila - Jardim Nova Itapevi, Itapevi - SP, 06694-090",
+      "lineup": "oJhow",
+      "ticket": "",
+      "insta": "",
+      "notes": "Realização: Comissão do Hip Hop de Itapevi | Apoio: Secretaria de Cultura de Itapevi",
+      "going": [],
+      "cover": "capa-ojhow.jpg"
+    },
+    "e-20261122": {
+      "title": "Show do BigJota | 23ª Semana do HipHop de Itapevi",
+      "date": "2026-11-22",
+      "start": "13:05",
+      "end": "",
+      "address": "Parque da Cidade - R. Prof. Dimarães Antônio Sandei, Vila - Jardim Nova Itapevi, Itapevi - SP, 06694-090",
+      "lineup": "Big Jota",
+      "ticket": "",
+      "insta": "",
+      "notes": "Realização: Comissão do Hip Hop de Itapevi | Apoio: Secretaria de Cultura de Itapevi",
+      "going": [],
+      "cover": "capa-bigjota.jpg"
+    },
+
     "e-20261128": {
       "title": "Audição Dakota",
       "date": "2026-11-28",
